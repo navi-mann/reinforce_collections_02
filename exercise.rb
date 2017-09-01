@@ -107,4 +107,27 @@ hash[:response][:results].each do |new_key|
   new_key[:views] = 0
 end
 
-puts hash[:response][:results][0]
+# puts hash[:response][:results][0]
+
+def read_article(hash)
+  articles = hash[:response][:results]
+
+    random_article = articles.sample
+    random_article[:views] += 1
+
+    return random_article
+end
+#
+# 5.times { puts read_article(hash)}
+
+# Write a method called display_views that iterates through the articles and displays their titles and view counts
+
+def display_views(hash)
+hash[:response][:results].each do |article|
+    puts article[:webTitle]
+    puts article[:views]
+  end
+
+end
+
+display_views(hash)
